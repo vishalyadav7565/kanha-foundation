@@ -1,5 +1,3 @@
-"use client";
-
 import { client } from "@/lib/sanity";
 import Image from "next/image";
 import Counter from "./Counter";
@@ -7,8 +5,15 @@ import Timeline from "./Timeline";
 import Gallery from "./Gallery";
 import KathaMap from "./KathaMap";
 
-async function getKatha() {
+type KathaType = {
+  title: string;
+  place: string;
+  year: string;
+  devotees: number;
+  imageUrl: string;
+};
 
+async function getKatha(): Promise<KathaType[]> {
   const query = `*[_type=="katha"]{
     title,
     place,
@@ -21,10 +26,9 @@ async function getKatha() {
 }
 
 export default async function KathaPage() {
+  const data: KathaType[] = await getKatha();
 
-  const data = await getKatha();
-
-  const images = data.map((item)=>item.imageUrl);
+  const images = data.map((item: KathaType) => item.imageUrl);
 
   return (
     <div className="bg-white">
@@ -32,7 +36,6 @@ export default async function KathaPage() {
       {/* HERO */}
 
       <div className="bg-orange-600 text-white py-20 text-center">
-
         <h1 className="text-5xl font-bold mb-4">
           Shri Ram Katha Mahotsav
         </h1>
@@ -41,7 +44,6 @@ export default async function KathaPage() {
           कथा के माध्यम से भक्ति, संस्कार और आध्यात्मिक
           ज्ञान का प्रसार।
         </p>
-
       </div>
 
       {/* ABOUT */}
@@ -57,7 +59,6 @@ export default async function KathaPage() {
         />
 
         <div>
-
           <h2 className="text-3xl font-bold text-orange-600 mb-4">
             About Katha
           </h2>
@@ -72,25 +73,27 @@ export default async function KathaPage() {
             हमारी संस्था विभिन्न शहरों में कथा आयोजन कर
             समाज में भक्ति और संस्कारों का प्रसार करती है।
           </p>
-
         </div>
 
       </div>
 
       {/* COUNTER */}
 
-      <Counter/>
+      <Counter />
 
       {/* TIMELINE */}
 
-      <Timeline/>
+      <Timeline />
 
       {/* GALLERY */}
 
-      <Gallery images={images}/>
+      <Gallery images={images} />
+
+      {/* MAP */}
+
+      <KathaMap />
 
       {/* EVENTS */}
-      <KathaMap/>
 
       <div className="max-w-6xl mx-auto py-16 px-6">
 
@@ -100,7 +103,7 @@ export default async function KathaPage() {
 
         <div className="grid md:grid-cols-3 gap-8">
 
-          {data.map((item,i)=>(
+          {data.map((item: KathaType, i: number) => (
             <div
               key={i}
               className="bg-white shadow-lg rounded-xl p-6"
