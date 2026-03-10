@@ -1,6 +1,5 @@
 import "./globals.css"
 import Navbar from "@/components/Navbar"
-import "./globals.css"
 
 export const metadata = {
   title: "Kanhafoundation NGO",
@@ -13,12 +12,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="bg-gray-50">
         <Navbar />
+
         <main className="pt-20">
           {children}
         </main>
+
       </body>
     </html>
   )

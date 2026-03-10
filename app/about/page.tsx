@@ -1,34 +1,38 @@
 "use client";
 
+import Kathabout from "./katha/Kathabout";
 import { motion } from "framer-motion";
 
-const stats = [
-  { number: "2500+", label: "Women Educated & Skilled" },
-  { number: "40+", label: "Community Learning Camps" },
-  { number: "15+", label: "Rural Areas Covered" },
-  { number: "100+", label: "Katha Sessions Conducted" },
+const impactStats = [
+  { number: "500+", label: "Girls Supported with Education" },
+  { number: "120+", label: "Marriages Organized" },
+  { number: "1000+", label: "Poor Families Helped" },
+  { number: "50+", label: "Ramkatha Programs Conducted" },
 ];
 
-const focusAreas = [
+const problems = [
+  "Lack of education",
+  "Financial hardship",
+  "Early marriage pressure",
+  "No support for marriage expenses",
+];
+
+const services = [
   {
-    title: "Women Education",
-    description:
-      "Providing literacy programs, digital education, and skill-based training to empower women toward financial independence.",
+    title: "Education Support for Poor Girls",
+    desc: "We sponsor school education, books, uniforms, and learning resources for girls from poor families.",
   },
   {
-    title: "Community Development",
-    description:
-      "Grassroots NGO initiatives focusing on rural upliftment, health awareness, and social inclusion.",
+    title: "Upbringing & Basic Needs",
+    desc: "Food support, health assistance, clothing, and emotional care for underprivileged girls.",
   },
   {
-    title: "Katha & Cultural Literacy",
-    description:
-      "Using storytelling (Katha) as a transformative tool to educate, inspire confidence, and preserve cultural wisdom.",
+    title: "Marriage Support",
+    desc: "Helping poor families organize dignified marriages for their daughters.",
   },
   {
-    title: "Skill & Leadership Development",
-    description:
-      "Training programs to develop leadership, entrepreneurship, and vocational capabilities among women.",
+    title: "Support for Poor Families",
+    desc: "Financial and social support for struggling families in rural communities.",
   },
 ];
 
@@ -36,142 +40,137 @@ export default function AboutPage() {
   return (
     <main className="bg-white text-gray-800">
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <section className="relative h-[85vh] flex items-center justify-center text-white bg-[url('/kanha-hero.jpg')] bg-cover bg-center">
         <div className="absolute inset-0 bg-black/60"></div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 text-center max-w-4xl px-6"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Empowering Women. Educating Communities. Transforming Futures.
+        <div className="relative z-10 text-center max-w-4xl px-6">
+          <h1 className="text-4xl md:text-6xl font-bold">
+            Empowering Poor Girls with Education, Care & Marriage Support
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-gray-200">
-            Kanha Foundation is committed to sustainable women education,
-            community upliftment, and cultural empowerment through Katha.
-          </p>
-        </motion.div>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <button className="bg-orange-500 px-6 py-3 rounded-full">
+              Donate Now
+            </button>
+            <button className="bg-white text-black px-6 py-3 rounded-full">
+              Sponsor a Girl
+            </button>
+            <button className="border px-6 py-3 rounded-full">
+              Become Volunteer
+            </button>
+          </div>
+        </div>
       </section>
 
-      {/* ================= ABOUT SECTION ================= */}
-      <section className="py-24 px-6 md:px-16 bg-gray-50">
+      {/* ABOUT NGO */}
+      <section className="py-20 max-w-5xl mx-auto text-center px-6">
+        <h2 className="text-3xl font-bold mb-6">About Our NGO</h2>
+        <p className="text-gray-600 text-lg">
+          We are a non-profit organization dedicated to supporting
+          underprivileged girls and struggling families by providing education,
+          care, and financial support.
+        </p>
+      </section>
+
+      {/* WHY OUR WORK MATTERS */}
+      <section className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto text-center">
-          <motion.h2
-            className="text-3xl font-semibold mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-          >
-            About Kanha Foundation
-          </motion.h2>
+          <h2 className="text-3xl font-bold mb-12">Why Our Work Matters</h2>
 
-          <motion.p
-            className="text-gray-600 leading-relaxed text-lg"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-          >
-            Kanha Foundation is a women-focused NGO dedicated to education,
-            empowerment, and community transformation. We work at the grassroots
-            level to create equal opportunities for women and girls in rural and
-            underserved communities. Through structured educational programs,
-            leadership development, and traditional Katha sessions, we nurture
-            confidence, knowledge, and social awareness.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* ================= MISSION & VISION ================= */}
-      <section className="py-24 px-6 md:px-16">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-
-          <motion.div
-            className="border rounded-2xl p-12 shadow-sm hover:shadow-lg transition"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
-            <h3 className="text-2xl font-semibold mb-6">Our Mission</h3>
-            <p className="text-gray-600 leading-relaxed">
-              To empower women through quality education, vocational skills,
-              and cultural storytelling initiatives that promote independence,
-              dignity, and leadership.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="border rounded-2xl p-12 shadow-sm hover:shadow-lg transition"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
-            <h3 className="text-2xl font-semibold mb-6">Our Vision</h3>
-            <p className="text-gray-600 leading-relaxed">
-              A society where every woman has access to education, equal
-              opportunity, and the confidence to shape her future and
-              contribute meaningfully to her community.
-            </p>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* ================= IMPACT STATS ================= */}
-      <section className="py-24 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 text-center px-6">
-
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-            >
-              <h3 className="text-5xl font-bold">{stat.number}</h3>
-              <p className="mt-3 text-gray-300">{stat.label}</p>
-            </motion.div>
-          ))}
-
-        </div>
-      </section>
-
-      {/* ================= FOCUS AREAS ================= */}
-      <section className="py-24 px-6 md:px-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-semibold text-center mb-16">
-            Our Key Initiatives
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {focusAreas.map((area, index) => (
-              <motion.div
-                key={index}
-                className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-lg transition border"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-              >
-                <h3 className="font-semibold text-lg mb-4">{area.title}</h3>
-                <p className="text-gray-600 text-sm">{area.description}</p>
-              </motion.div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {problems.map((item, i) => (
+              <div key={i} className="bg-white p-6 rounded-xl shadow">
+                <h3 className="font-semibold">{item}</h3>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="py-24 bg-black text-white text-center">
-        <motion.h2
-          className="text-3xl md:text-4xl font-semibold mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          Join Us in Empowering Women & Building Stronger Communities
-        </motion.h2>
+      {/* MISSION & VISION */}
+      <section className="py-20 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="mt-6 px-10 py-4 bg-white text-black rounded-full font-semibold"
-        >
-          Support Our Mission
-        </motion.button>
+        <div className="border p-10 rounded-xl">
+          <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+          <p>
+            To empower underprivileged girls through education and financial support.
+          </p>
+        </div>
+
+        <div className="border p-10 rounded-xl">
+          <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
+          <p>
+            A society where every girl has access to education and dignity.
+          </p>
+        </div>
+
+      </section>
+
+      {/* WHAT WE DO */}
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="text-3xl font-bold text-center mb-14">
+            What We Do
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {services.map((service, i) => (
+              <div key={i} className="bg-white p-8 rounded-xl shadow">
+                <h3 className="font-semibold mb-3">{service.title}</h3>
+                <p className="text-gray-600 text-sm">{service.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* IMPACT */}
+      <section className="bg-black text-white py-20">
+
+        <h2 className="text-3xl text-center font-bold mb-16">
+          Our Impact
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 text-center">
+
+          {impactStats.map((stat, i) => (
+            <div key={i}>
+              <h3 className="text-5xl font-bold">{stat.number}</h3>
+              <p className="mt-3 text-gray-300">{stat.label}</p>
+            </div>
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* KATHA ABOUT COMPONENT */}
+      <Kathabout/>
+
+      {/* CTA */}
+      <section className="bg-orange-500 text-white text-center py-20">
+
+        <h2 className="text-3xl font-bold mb-6">
+          Together We Can Change a Daughter’s Life
+        </h2>
+
+        <div className="flex flex-wrap justify-center gap-6">
+          <button className="bg-white text-black px-8 py-3 rounded-full">
+            Donate Now
+          </button>
+
+          <button className="border px-8 py-3 rounded-full">
+            Sponsor a Girl
+          </button>
+
+          <button className="border px-8 py-3 rounded-full">
+            Volunteer Today
+          </button>
+        </div>
+
       </section>
 
     </main>
