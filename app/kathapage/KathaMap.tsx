@@ -5,7 +5,12 @@ import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/countries/india/india-states.json";
 
-const markers = [
+type MarkerType = {
+  name: string;
+  coordinates: [number, number];
+};
+
+const markers: MarkerType[] = [
   { name: "Prayagraj", coordinates: [81.8463, 25.4358] },
   { name: "Varanasi", coordinates: [83.0104, 25.3176] },
   { name: "Ayodhya", coordinates: [82.1998, 26.7922] },
@@ -14,15 +19,13 @@ const markers = [
 export default function KathaMap() {
   return (
     <div className="max-w-5xl mx-auto py-16">
-
       <h2 className="text-3xl font-bold text-center mb-10">
         Katha Locations
       </h2>
 
       <ComposableMap projection="geoMercator">
-
         <Geographies geography={geoUrl}>
-          {({ geographies }) =>
+          {({ geographies }: { geographies: any[] }) =>
             geographies.map((geo) => (
               <Geography
                 key={geo.rsmKey}
@@ -42,7 +45,6 @@ export default function KathaMap() {
             </text>
           </Marker>
         ))}
-
       </ComposableMap>
     </div>
   );
