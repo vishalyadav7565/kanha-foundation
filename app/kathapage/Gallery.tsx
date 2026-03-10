@@ -1,28 +1,24 @@
 import Image from "next/image";
 
-export default function Gallery({images}) {
+type GalleryProps = {
+  images: string[];
+};
+
+export default function Gallery({ images }: GalleryProps) {
   return (
     <div className="max-w-6xl mx-auto py-16 px-6">
-
-      <h2 className="text-3xl font-bold text-center mb-10">
-        Katha Gallery
-      </h2>
-
-      <div className="grid md:grid-cols-4 gap-6">
-
-        {images.map((img,i)=>(
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {images?.map((img, index) => (
           <Image
-            key={i}
+            key={index}
             src={img}
-            width={300}
-            height={200}
-            alt="katha"
-            className="rounded-xl shadow-lg"
+            alt="gallery"
+            width={400}
+            height={300}
+            className="rounded-lg object-cover"
           />
         ))}
-
       </div>
-
     </div>
   );
 }
